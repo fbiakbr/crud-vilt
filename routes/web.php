@@ -19,3 +19,5 @@ Route::get('/', function () {
     ]);
     
 });
+
+Route::resource('user', \App\Http\Controllers\UserController::class);
