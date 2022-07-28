@@ -29,4 +29,18 @@ class UserController extends Controller
         ]);
         return redirect()->route('user.index');
     }
+    public function edit(User $user)
+    {
+        return Inertia::render('User/EditUser', [
+            'user' => $user,
+        ]);
+    }
+    public function update(Request $request, User $user)
+    {
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email
+        ]);
+        return redirect()->route('user.index');
+    }
 }

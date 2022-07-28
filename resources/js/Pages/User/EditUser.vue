@@ -1,15 +1,18 @@
 <script setup>
-import { useForm } from '@inertiajs/inertia-vue3';
+import { useForm } from "@inertiajs/inertia-vue3";
 
-    const form = useForm({
-        name: '',
-        email: '',
-        password: '',
-    })
+const props = defineProps({
+    user: Object
+});
+
+const form = useForm({
+    name: props.user.name,
+    email: props.user.email,
+});
 </script>
 <template>
     <div class="max-w-4xl m-auto mt-10 mb-10">
-        <form @submit.prevent="form.post('/user')">
+        <form @submit.prevent="form.put(`/user/${user.id}`)">
             <div class="form-control w-full max-w-xs">
                 <label class="label">
                     <span class="label-text">Name</span>
@@ -34,19 +37,11 @@ import { useForm } from '@inertiajs/inertia-vue3';
                     v-model="form.email"
                 />
             </div>
-            <div class="form-control w-full max-w-xs">
-                <label class="label">
-                    <span class="label-text">Password</span>
-                </label>
-                <input
-                    type="password"
-                    placeholder="Enter your password"
-                    class="input input-primary input-bordered w-full max-w-xs"
-                    name="password"
-                    v-model="form.password"
-                />
-            </div>
-            <input type="submit" value="Create" class="btn btn-outline btn-primary btn-sm mt-4">
+            <input
+                type="submit"
+                value="Update"
+                class="btn btn-outline btn-primary btn-sm mt-4"
+            />
         </form>
     </div>
 </template>
