@@ -10,6 +10,7 @@ defineProps({
         <div class="card bg-primary w-full">
             <div class="card-body">
                 <div class="overflow-x-auto">
+                    <Link href="/user/create" class="btn btn-dark mb-4">Create User</Link>
                     <table class="table w-full">
                         <!-- head -->
                         <thead>
@@ -32,8 +33,8 @@ defineProps({
                                         class="btn btn-primary btn-sm m-1"
                                         >Edit</Link
                                     >
-                                    <a href="" class="btn btn-error btn-sm m-1"
-                                        >Delete</a
+                                    <Link :href="`/user/${user.id}`" method="delete" class="btn btn-error btn-sm m-1"
+                                        >Delete</Link
                                     >
                                 </td>
                             </tr>

@@ -1,15 +1,20 @@
 <script setup>
-import { useForm } from '@inertiajs/inertia-vue3';
+import { useForm } from "@inertiajs/inertia-vue3";
 
-    const form = useForm({
-        name: '',
-        email: '',
-        password: '',
-    })
+const form = useForm({
+    name: "",
+    email: "",
+    password: "",
+});
 </script>
 <template>
-    <div class="max-w-4xl m-auto mt-10 mb-10">
-        <form @submit.prevent="form.post('/user')">
+    <div class="max-w-7xl m-auto mt-10 mb-10">
+        <div class="card lg:card-side shadow-xl">
+            <figure>
+                <img src="https://placeimg.com/400/400/arch" alt="Album" />
+            </figure>
+            <div class="card-body">
+                <form @submit.prevent="form.post('/user')">
             <div class="form-control w-full max-w-xs">
                 <label class="label">
                     <span class="label-text">Name</span>
@@ -17,7 +22,7 @@ import { useForm } from '@inertiajs/inertia-vue3';
                 <input
                     type="text"
                     placeholder="Enter your name"
-                    class="input input-primary input-bordered w-full max-w-xs"
+                    class="input input-secondary input-bordered w-full max-w-xs"
                     name="name"
                     v-model="form.name"
                 />
@@ -29,7 +34,7 @@ import { useForm } from '@inertiajs/inertia-vue3';
                 <input
                     type="text"
                     placeholder="Enter your email"
-                    class="input input-primary input-bordered w-full max-w-xs"
+                    class="input input-secondary input-bordered w-full max-w-xs"
                     name="email"
                     v-model="form.email"
                 />
@@ -41,12 +46,19 @@ import { useForm } from '@inertiajs/inertia-vue3';
                 <input
                     type="password"
                     placeholder="Enter your password"
-                    class="input input-primary input-bordered w-full max-w-xs"
+                    class="input input-secondary input-bordered w-full max-w-xs"
                     name="password"
                     v-model="form.password"
                 />
             </div>
-            <input type="submit" value="Create" class="btn btn-outline btn-primary btn-sm mt-4">
+            <input
+                type="submit"
+                value="Create"
+                class="btn btn-outline mt-4"
+            />
         </form>
+            </div>
+        </div>
+        
     </div>
 </template>
